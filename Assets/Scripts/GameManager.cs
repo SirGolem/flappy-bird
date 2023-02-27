@@ -1,18 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    #region Singleton
+    public static GameManager instance;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        if (instance != null)
+        {
+            Debug.LogWarning("More than one instance of GameManager in scene.");
+            return;
+        }
+
+        instance = this;
+    }
+    #endregion
+
+    public int score { get; private set; }
+    public Text scoreText;
+
+    public void IncreaseScore(int toAdd = 1)
+    {
+        score += toAdd;
+        scoreText.text = score.ToString();
     }
 }
