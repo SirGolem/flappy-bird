@@ -19,12 +19,24 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public int score { get; private set; }
+    public bool IsGameEnded { get; private set; } = false;
+
+    public int Score { get; private set; }
     public Text scoreText;
+    public AudioSource scoreSFX;
+
+    public GameObject gameOver;
 
     public void IncreaseScore(int toAdd = 1)
     {
-        score += toAdd;
-        scoreText.text = score.ToString();
+        Score += toAdd;
+        scoreText.text = Score.ToString();
+        scoreSFX.Play();
+    }
+
+    public void EndGame()
+    {
+        IsGameEnded = true;
+        gameOver.SetActive(true);
     }
 }

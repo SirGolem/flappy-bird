@@ -2,11 +2,18 @@ using UnityEngine;
 
 public class PipeSpawner : MonoBehaviour
 {
+    private GameManager gameManager;
+
     public GameObject pipePrefab;
     public float spawnRate = 2f;
     public float offset = 10f;
 
     private float timer = 0f;
+
+    private void Awake()
+    {
+        gameManager = GameManager.instance;
+    }
 
     private void Start()
     {
@@ -15,6 +22,8 @@ public class PipeSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (gameManager.IsGameEnded) return;
+
         if (timer < spawnRate)
         {
             timer += Time.deltaTime;
