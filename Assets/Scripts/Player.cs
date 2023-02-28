@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
 
     private void OnBecameInvisible()
     {
+        if (gameManager == null) return;
+
         gameManager.EndGame();
     }
 }
