@@ -7,14 +7,14 @@ public class PipeMovement : MonoBehaviour
     public float speed = 5f;
     public Vector3 deletePoint;
 
-    private void Awake()
+    private void Start()
     {
         gameManager = GameManager.instance;
     }
 
     private void Update()
     {
-        if (gameManager.IsGameEnded) return;
+        if (!gameManager.HasGameStarted || gameManager.HasGameEnded) return;
 
         transform.position += speed * Time.deltaTime * Vector3.left;
 

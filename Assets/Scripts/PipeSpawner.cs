@@ -10,19 +10,16 @@ public class PipeSpawner : MonoBehaviour
 
     private float timer = 0f;
 
-    private void Awake()
-    {
-        gameManager = GameManager.instance;
-    }
-
     private void Start()
     {
+        gameManager = GameManager.instance;
+
         SpawnPipe();
     }
 
     private void Update()
     {
-        if (gameManager.IsGameEnded) return;
+        if (!gameManager.HasGameStarted || gameManager.HasGameEnded) return;
 
         if (timer < spawnRate)
         {

@@ -6,14 +6,14 @@ public class PipeMiddle : MonoBehaviour
 
     public int layer = 3;
 
-    private void Awake()
+    private void Start()
     {
         gameManager = GameManager.instance;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (gameManager.IsGameEnded) return;
+        if (!gameManager.HasGameStarted || gameManager.HasGameEnded) return;
         if (collision.gameObject.layer != layer) return;
 
         gameManager.IncreaseScore();

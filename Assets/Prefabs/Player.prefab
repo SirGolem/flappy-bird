@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e587499f3671c4dbf736363dc00914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoFlap: 1
   flapStrength: 13
 --- !u!1 &8959233877290798263
 GameObject:
