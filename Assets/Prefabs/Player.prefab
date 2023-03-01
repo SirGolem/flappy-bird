@@ -138,7 +138,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoFlap: 1
+  inputStopsAutoFlap: 1
   flapStrength: 13
+  rotationStrength: 6
+  rotationSmoothing: 0.01
 --- !u!1 &8959233877290798263
 GameObject:
   m_ObjectHideFlags: 0
