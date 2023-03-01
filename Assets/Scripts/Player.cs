@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
     public bool autoFlap = true;
     public bool inputStopsAutoFlap = true;
     public float flapStrength = 10f;
-    public float rotationStrength = 7f;
-    public float rotationSmoothing = 0.01f;
+    // public float rotationStrength = 7f;
+    // public float rotationSmoothing = 0.01f;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0f, rb.velocity.y * rotationStrength), rotationSmoothing);
+        // transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0f, rb.velocity.y * rotationStrength), rotationSmoothing);
 
         if (autoFlap && transform.position.y <= 0f)
         {
